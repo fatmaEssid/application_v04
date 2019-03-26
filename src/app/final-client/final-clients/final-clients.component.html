@@ -1,0 +1,25 @@
+<h4 class="display-5 text-center">Liste des clients finals</h4><hr>
+<table class="table table-hover">
+  <thead class="thead-light">
+    <th>ID</th>
+    <th>Client final</th>
+    <th>Adresse</th>
+    <th>Contact </th>
+    <th>E-mail</th>   
+    <th>
+      <a  class="btn btn-outline-success" routerLink="/final-client"><i class="fa fa-plus-square"></i> Ajouter Client</a>
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of finalClientList">
+      <th (click)="openOrEdit(i.Fact_id)">{{i.final_client_id}} </th>
+      <td>{{i.final_client_nom}} </td>
+      
+      <td>{{i.final_client_adresse}} </td>
+      <td>{{i.final_client_contact}} </td>
+      <td>{{i.final_client_email}} </td>
+    
+      <td></td>
+    </tr>
+  </tbody>
+</table>

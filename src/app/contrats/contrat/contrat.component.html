@@ -1,0 +1,114 @@
+<h1 class="display-5">Ajouter Contrat </h1> 
+
+  
+<hr>
+<form #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="onSubmit(form)">
+    <div class="row">
+      <div class="col-md-6" >
+  
+          <div class="form-group">
+              <label >Client
+              </label>
+              <select name="client_id" #client_id="ngModel" [(ngModel)]="service.formData.client_id" class="form-control" [class.is-invalid]="!isValid && service.formData.Client_id==0">
+               <option value="0">-select-</option> 
+               <option *ngFor="let c of clientList" value="{{c.client_id}} ">{{c.client_nom}} </option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label >Description du contrat
+                </label>          
+                      
+                      <input name="description" #description="ngModel" [(ngModel)]="service.formData.description" class="form-control" >
+                    </div>  
+            
+           
+  
+                  <div class="form-group">
+                 
+            
+                    <label >Date Début
+                    </label> 
+                    <div class="input-group" >
+                      
+                      <input  [matDatepicker]="date_debut"  name="date_debut" #date_debut="ngModel" [(ngModel)]="service.formData.date_debut"  class="form-control" >
+                   
+                      <div class="input-group-prepend">
+                        
+                        <mat-datepicker-toggle matSuffix [for]="date_debut"></mat-datepicker-toggle>
+                        <mat-datepicker #date_debut></mat-datepicker>
+                 
+                     
+                  
+                      </div>
+                    </div>
+                   <!--<mat-error align= "end"  *ngIf="dateCtrl.hasError('required')">
+                      Date valide jj/mm/aaaa est obligatoire
+                    </mat-error>-->
+                  </div>
+        </div>
+          
+        <div class="col-md-6">
+
+
+        
+  
+        
+        
+            <div class="form-group">
+                <label >Client Final
+                </label>
+                <select name="final_client_id" #final_client_id="ngModel" [(ngModel)]="service.formData.final_client_id" class="form-control" [class.is-invalid]="!isValid && service.formData.Client_id==0">
+                 <option value="0">-select-</option> 
+                 <option *ngFor="let c of finalClientList" value="{{c.final_client_id }} ">{{c.final_client_nom}} </option>
+                </select>
+              </div>
+     
+    <!---->
+         
+    <div class="form-group">
+        <label >Prix Unitaire
+        </label>
+        <div class="input-group">
+           
+           <input name="prix_unitaire" #prix_unitaire="ngModel" [(ngModel)]="service.formData.prix_unitaire" class="form-control" >
+           <div class="input-group-prepend">
+            <div class="input-group-text">
+              €
+            </div>
+        
+            </div>
+        </div>
+          </div>
+
+
+ 
+        <div class="form-group">
+                 
+            
+          <label >Date Fin
+          </label> 
+          <div class="input-group">
+            
+            <input  [matDatepicker]="date_fin" [min]="minDate" name="date_fin" #date_fin="ngModel" [(ngModel)]="service.formData.date_fin"  class="form-control">
+            <div class="input-group-prepend">
+              
+              <mat-datepicker-toggle matSuffix [for]="date_fin"></mat-datepicker-toggle>
+              <mat-datepicker #date_fin></mat-datepicker>
+       
+           
+        
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  
+  
+  
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Enregistrer</button>
+      <a  class="btn btn-outline-dark ml-1" routerLink="/contrats"><i class="fa fa-table"></i> Afficher</a>
+    </div>
+  </form>
+ 

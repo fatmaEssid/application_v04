@@ -1,0 +1,30 @@
+
+<h4 class="display-5 text-center">Liste des clients</h4><hr>
+<table class="table table-hover">
+  <thead class="thead-light">
+    <th>Client ID</th>
+    <th>Client </th>
+    <th>Num° Siret</th>
+    <th>Adresse</th>
+    <th>E-mail</th>
+    <th>TVA </th>
+    <th>Client final </th>
+    
+    <th>
+      <a  class="btn btn-outline-success" routerLink="/client"><i class="fa fa-plus-square"></i> Ajouter Client</a>
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of clientList">
+      <th (click)="openOrEdit(i.Fact_id)">{{i.client_id}} </th>
+      <td>{{i.client_nom}} </td>
+      <td>{{i.client_siret}} </td>
+      <td>{{i.client_adresse}} </td>
+      <td>{{i.client_email}} </td>
+      <td>{{i.client_TVA}}%</td>
+      
+      <td>{{i.final_client_nom}}</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,84 @@
+
+<h1>Ajouter Client Final</h1> <hr>
+<form #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="onSubmit(form)">
+  <div class="row">
+    <div class="col-md-6" >
+      <div class="form-group">
+        <label >Nom Client Final
+        </label>
+        <div class="input-group">
+           
+              <input name="final_client_nom" #final_client_nom="ngModel" [(ngModel)]="service.formData.final_client_nom" class="form-control" >
+
+        </div>
+        
+      </div>
+
+      <div class="form-group">
+        <label >Adresse
+        </label>
+        
+        <input name="final_client_adresse" #final_client_adresse="ngModel" [(ngModel)]="service.formData.final_client_adresse" class="form-control" >
+      </div>
+    
+    
+   
+    
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <label >Email
+        </label>
+        <input name="final_client_email" #final_client_email="ngModel" [(ngModel)]="service.formData.final_client_email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label >Contact
+        </label>
+        <input name="final_client_contact" #final_client_contact="ngModel" [(ngModel)]="service.formData.final_client_contact" class="form-control" >
+ 
+      </div>
+  
+    
+    </div>
+    
+  </div>
+
+  <!--Table de details de facture -->
+  <!--<table class="table table-borderless" >
+    <thead class="thead-light">
+      <th>Description du Contrat</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>TVA</th>
+      <th>Totale</th>
+      <th>
+        <a  class="btn btn-sm btn-success" (click)="addOrEditFactDetail(null,service.formData.Fact_id)"><i class="fa fa-plus"></i> Ajouter un contrat</a>
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngIf="service.factureDetails.length == 0" [class.text-danger]="!isValid && service.factureDetails.length==0">
+        <td class="font-italic text-center ml-1" colspan="6">
+          Pas de contrat sélectionné dans cette facture.
+        </td>
+      </tr>
+      <tr *ngFor="let c of service.clientDetails; let i=index">
+        <td>{{c.client_mediator}} </td>
+        <td>{{c.Price}} </td>
+        <td>{{c.Quantity}} </td>
+        <td>{{c.TVA}} </td>
+        <td>{{c.Total}} </td>
+        <td>
+            <a  class="btn btn-sm btn-info" (click)="addOrEditFactDetail(i,service.formData.client_id)"><i class="fa fa-pencil"></i></a>
+            <a  class="btn btn-sm btn-danger ml-1" (click)="onDeleteFactDetail(i,service.formData.client_id)"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+-->
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Enregistrer</button>
+    <a  class="btn btn-outline-dark ml-1" routerLink="/final-clients"><i class="fa fa-table"></i> Afficher</a>
+  </div>
+</form>
